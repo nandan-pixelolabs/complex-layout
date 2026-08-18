@@ -62,7 +62,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 40px; /* Added 40px padding on left/right to push nav items inward */
     position: relative;
     z-index: 10;
 }
@@ -278,14 +278,283 @@ body {
     right: -22px; /* Half outside the image container */
 }
 
+/* About Products Section */
+.about-products-section {
+    padding-top: 80px;
+    background-color: transparent;
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 1180px; /* Exact width from Zeplin */
+    margin: 0 auto 0; /* Removed 60px bottom margin to match Zeplin gap */
+    padding: 0 20px;
+}
+
+.fish-icon {
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+.intro-text h2 {
+    font-family: var(--primary-font);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+.landscape-background {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-top: 1px; /* Prevent margin collapse */
+    height: 737px;
+}
+
+.landscape-background::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 344px;
+    background: linear-gradient(to bottom, rgba(251, 249, 245, 0) 0%, rgba(251, 249, 245, 1) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.story-content {
+    text-align: center;
+    max-width: 960px; /* 1440px - 240px - 240px = 960px */
+    margin: 20px auto 0; /* Exactly 20px gap from the H2 above */
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.story-content p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.8;
+    color: #111;
+    margin-bottom: 47px;
+}
+
+.product-carousel-container {
+    position: relative;
+    max-width: 1600px; /* Same max-width as the hero banner's .page-wrapper */
+    width: 100%;
+    margin: -210px auto 0;
+    padding: 0 30px; /* Same padding as .page-wrapper to perfectly align the card edge */
+    z-index: 2;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-arrow img {
+    height: 44px;
+}
+
+.carousel-arrow.prev {
+    left: 20px; /* 30px padding - 20px position = 10px stick out from card edge */
+}
+
+.carousel-arrow.next {
+    right: 20px; /* 30px padding - 20px position = 10px stick out from card edge */
+}
+
+.product-card {
+    display: flex;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    min-height: 690px;
+    width: 100%;
+}
+
+.product-image-container {
+    flex: 1;
+    min-width: 0; /* Prevents flexbox overflow from large images */
+    position: relative;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.badge-new {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 60px;
+}
+
+.product-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-details {
+    flex: 0 0 760px;
+    background: #f7f6f2; /* Light cream background */
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-details h3 {
+    font-family: var(--primary-font);
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.reviews {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.stars {
+    color: #444;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.review-count {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+}
+
+.product-details .description {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.btn-shop {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #fff;
+    color: var(--color-btn-red);
+    border: 1px solid #e1e1e1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    align-self: flex-start;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+}
+
+.btn-shop:hover {
+    background: #f1f1f1;
+}
+
+.features {
+    list-style: none;
+    border-top: 1px solid #e1e1e1;
+    padding-top: 20px;
+}
+
+.features li {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #555;
+    padding: 14px 0;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    padding-left: 20px;
+    text-transform: uppercase;
+}
+
+.features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #d1d1d1;
+    border-radius: 50%;
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-content h1 {
         font-size: 36px;
     }
+    
+    .product-carousel-container {
+        padding: 0 40px;
+        margin-top: 40px;
+    }
+
+    .carousel-arrow {
+        top: calc(50vw - 40px); /* Center dynamically against the image height */
+    }
+    
+    .landscape-background {
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .product-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .product-details {
+        flex: auto;
+        width: 100%;
+        padding: 40px;
+    }
+    
+    .product-image-container {
+        padding: 40px;
+        flex: auto;
+    }
 }
 
 @media (max-width: 768px) {
+    .product-carousel-container {
+        padding: 0 15px; /* Give the white card more space on small screens */
+    }
+    
+    .carousel-arrow {
+        top: calc(50vw - 15px); /* Center dynamically against the image height */
+    }
+    
+    .carousel-arrow.prev {
+        left: 5px; /* Pull arrow inward on mobile */
+    }
+    
+    .carousel-arrow.next {
+        right: 5px; /* Pull arrow inward on mobile */
+    }
+
     .announcement-banner {
         font-size: 10px;
         line-height: 1.6;
@@ -410,8 +679,12 @@ body {
     }
 
     .slider-arrow img {
-        height: 44px;
+        height: 32px; /* Reduced size for mobile */
         width: auto;
+    }
+
+    .slider-arrow {
+        top: 20vw; /* Shifted further upwards to perfectly center with the image */
     }
 
     .slider-arrow.prev {
