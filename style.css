@@ -501,6 +501,95 @@ body {
     border-radius: 50%;
 }
 
+/* Shop Categories (Bento Grid) */
+.shop-categories {
+    padding: 80px 0 20px;
+    background-color: var(--color-background);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 400px;
+    gap: 15px;
+}
+
+.bento-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    grid-column: span 1;
+    background-color: #000;
+}
+
+.bento-large {
+    grid-column: span 2;
+}
+
+.bento-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.bento-item:hover .bento-bg {
+    transform: scale(1.05);
+}
+
+/* Gradient Overlay */
+.bento-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.bento-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-label {
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.shop-label::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #b73225; /* Match design red */
+}
+
+.bento-content h3 {
+    color: #fff;
+    font-family: var(--primary-font);
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-content h1 {
@@ -510,6 +599,10 @@ body {
     .product-carousel-container {
         padding: 0 40px;
         margin-top: 40px;
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
     }
 
     .carousel-arrow {
@@ -541,6 +634,15 @@ body {
 @media (max-width: 768px) {
     .product-carousel-container {
         padding: 0 15px; /* Give the white card more space on small screens */
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        grid-auto-rows: 300px;
+    }
+    
+    .bento-large {
+        grid-column: span 1; /* Reset span on mobile */
     }
     
     .carousel-arrow {
