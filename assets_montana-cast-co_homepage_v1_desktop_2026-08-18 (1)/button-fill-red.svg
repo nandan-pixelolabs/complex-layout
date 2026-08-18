@@ -1,0 +1,10 @@
+<svg width="240" height="57" viewBox="0 0 240 57" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#EBE5CF" d="M.5.5h239v54H.5z"/>
+        <path fill="#B32226" d="M5 5h230v45H5z"/>
+        <text font-family="OpenSans-Bold, Open Sans" font-size="15" font-weight="bold" letter-spacing="2" fill="#FFF">
+                            <tspan x="73.017" y="33">OPTIONAL </tspan>
+                            <tspan x="82.539" y="53">BUTTON</tspan>
+                        </text>
+    </g>
+</svg>
