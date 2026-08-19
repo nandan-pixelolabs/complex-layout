@@ -1,0 +1,33 @@
+@use "../variables" as *;
+@use "../mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../assets/backgrounds/background-paper@2x.png") repeat;
+    color: $color-text;
+    font-family: $secondary-font;
+    overflow-x: hidden;
+}
+
+.mobile-only {
+    display: none !important;
+}
+
+.page-wrapper {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 30px;
+}
+
+@include mixins.small-mobile {
+    .page-wrapper {
+        padding: 0 15px;
+    }
+}

@@ -1,9 +1,0 @@
-<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fill-rule="evenodd">
-        <circle fill="#B32226" cx="30" cy="30" r="30"/>
-        <circle stroke="#FFF" cx="30" cy="30" r="27"/>
-        <text font-family="OpenSans-Bold, Open Sans" font-size="12" font-weight="bold" letter-spacing="2" fill="#FFF">
-                        <tspan x="10.244" y="35">NEW!</tspan>
-                    </text>
-    </g>
-</svg>

@@ -1,0 +1,144 @@
+@use "../variables" as *;
+@use "../mixins";
+
+/* Testimonial Section */
+.testimonial-section {
+    position: relative;
+    padding: 120px 0 40px 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 20px;
+        background-color: $color-primary;
+    }
+}
+
+/* Decorative Lures */
+.lure-left,
+.lure-right {
+    position: absolute;
+    z-index: 1;
+}
+
+.lure-1 {
+    bottom: 40px;
+    left: -20px;
+    width: 160px;
+    transform: rotate(4deg);
+    top: auto;
+}
+
+.lure-2 {
+    bottom: -158px;
+    left: 0px;
+    width: 140px;
+    transform: rotate(-1deg);
+}
+
+.lure-3 {
+    top: -20px;
+    right: -20px;
+    width: 150px;
+    transform: rotate(-2deg);
+}
+
+.lure-4 {
+    top: 100px;
+    right: -40px;
+    width: 180px;
+    transform: rotate(20deg);
+    bottom: auto;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    @include mixins.flex($align: center,
+        $direction: column);
+
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 40px 0;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.testimonial-section blockquote {
+    font-family: $primary-font;
+    font-size: 32px;
+    line-height: 1.5;
+    color: $color-text-dark;
+    margin: 0 auto 20px auto;
+    max-width: 1000px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.testimonial-author {
+    font-family: $secondary-font;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $color-text-dark;
+    margin-bottom: 140px;
+    /* Increased to match ~180pt gap from blockquote */
+}
+
+.testimonial-divider {
+    width: 80px;
+    opacity: 0.8;
+}
+
+@include mixins.mobile {
+    .lure-2,
+    .lure-3 {
+        display: none;
+    }
+
+    .lure-1 {
+        width: 100px;
+        bottom: 20px;
+        left: -10px;
+    }
+
+    .lure-4 {
+        display: block;
+        width: 100px;
+        top: -35px;
+        right: -10px;
+        bottom: auto;
+        transform: rotate(-20deg);
+    }
+
+    .testimonial-section {
+        padding: 60px 0 30px 0;
+
+        blockquote {
+            font-size: 22px;
+            text-align: center;
+            text-align-last: auto;
+        }
+    }
+
+    .testimonial-author {
+        margin-bottom: 80px;
+    }
+}
+

@@ -1,0 +1,232 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.announcement-banner {
+    background-color: $color-btn-red;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 20;
+
+    a {
+        color: white;
+        text-decoration: underline;
+        margin-left: 10px;
+    }
+}
+
+.close-banner {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+        height: 14px;
+    }
+}
+
+/* Header */
+.site-header {
+    @include mixins.flex($justify: space-between,
+        $align: center);
+    padding: 40px 40px;
+    /* Added 40px padding on left/right to push nav items inward */
+    position: relative;
+    z-index: 10;
+}
+
+.nav-left,
+.nav-right {
+    @include mixins.flex($align: center);
+    gap: 40px;
+    flex: 1;
+    /* This ensures both sides take equal space */
+}
+
+.nav-right {
+    justify-content: flex-end;
+
+    a {
+        @include mixins.flex($align: center);
+    }
+
+    img {
+        height: 20px;
+        object-fit: contain;
+    }
+}
+
+.nav-left {
+    a {
+        text-decoration: none;
+        color: $color-text;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+}
+
+.hamburger {
+    @include mixins.flex($justify: center,
+        $direction: column,
+        $display: none);
+
+    width: 26px;
+    height: 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    span {
+        display: block;
+        height: 2px;
+        width: 22px;
+        background-color: #111;
+        border-radius: 1px;
+        transition: all 0.3s ease;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    /* Placed exactly at the bottom edge of the header */
+    transform: translate(-50%, -50%);
+    /* Centered on that edge */
+    z-index: 15;
+
+    img {
+        height: 150px;
+        /* 150pt in the screenshot */
+        width: 150px;
+        max-width: 100%;
+        display: block;
+    }
+}
+
+.cart-link {
+    position: relative;
+    @include mixins.flex($justify: center,
+        $align: center,
+        $display: inline-flex);
+
+    text-decoration: none;
+
+    img {
+        height: 20px;
+        width: auto;
+        display: block;
+    }
+
+    .cart-count {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        background-color: #5d7554;
+        color: white;
+        font-size: 10px;
+        font-weight: 700;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        line-height: 1;
+    }
+}
+
+@include mixins.mobile {
+    .announcement-banner {
+        font-size: 10px;
+        line-height: 1.6;
+
+        a {
+            display: block;
+            margin-left: 0;
+            margin-top: 2px;
+        }
+    }
+
+    .site-header {
+        @include mixins.flex($justify: space-between,
+            $align: center);
+        padding: 20px 0;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-left {
+        a {
+            font-size: 10px;
+        }
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .logo {
+        top: calc(100% + 20px);
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .nav-right {
+        justify-content: flex-end;
+
+        .cart-link {
+            img {
+                height: 22px;
+                width: auto;
+            }
+
+            .cart-count {
+                top: -5px;
+                right: -7px;
+                width: 15px;
+                height: 15px;
+                font-size: 9px;
+            }
+        }
+    }
+}
+
+@include mixins.small-mobile {
+    .nav-right {
+        flex: 1;
+        justify-content: flex-end;
+    }
+}
+
+

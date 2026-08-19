@@ -1,0 +1,235 @@
+@use "../variables" as *;
+@use "../mixins";
+
+/* Hero Section */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    /* Adjust based on exact design */
+    height: clamp(500px, 70vh, 800px);
+    /* Responsive height */
+    @include mixins.flex-center;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include mixins.flex-center;
+}
+
+/* Image background handling - Best practice for Shopify to avoid breaking */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    /* Center everything inside the container */
+    color: white;
+    z-index: 2;
+    position: absolute;
+    top: 216px;
+    left: 80px;
+    max-width: 100%;
+    margin: 0;
+
+
+    h1 {
+        font-family: $primary-font;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 25px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        /* better readability over image */
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 60px;
+    /* Wider button */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+    margin-left: 20px;
+    /* Shifting button slightly to the right as requested */
+}
+
+.btn-primary {
+    background-color: $color-btn-red;
+    color: white;
+    border: 1px solid white;
+    position: relative;
+
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        /* Clear inner border */
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: #981919;
+    }
+}
+
+/* Slider Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.3s;
+
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    img {
+        height: 44px;
+        /* Default size for the full arrow image */
+        width: auto;
+    }
+
+    &.prev {
+        left: -22px;
+        /* Half outside the image container */
+    }
+
+    &.next {
+        right: -22px;
+        /* Half outside the image container */
+    }
+}
+
+@include mixins.tablet {
+    .hero-content {
+        h1 {
+            font-size: 36px;
+        }
+    }
+}
+
+@include mixins.mobile {
+    .hero-slider {
+        height: auto;
+        border: 1px solid #d4cdbd;
+        margin-top: 20px;
+        padding-bottom: 30px;
+        display: block;
+    }
+
+    .hero-slide {
+        position: relative;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-bg-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        z-index: 1;
+    }
+
+    .hero-content {
+        margin-top: 0;
+        position: relative;
+        top: auto;
+        left: auto;
+        padding: 30px 20px 0;
+        text-align: center;
+        color: $color-text;
+
+        h1 {
+            font-family: $primary-font;
+            font-size: 34px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: none;
+            color: #1a1a1a;
+        }
+
+        p {
+            display: none;
+        }
+    }
+
+    .btn {
+        padding: 16px 20px;
+        font-size: 14px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        display: block;
+    }
+
+    .btn-primary {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .slider-arrow {
+        width: 44px;
+        height: 44px;
+        opacity: 1;
+        display: flex;
+        top: 20vw;
+        transform: translateY(-50%);
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+
+        img {
+            height: 32px;
+            width: auto;
+        }
+
+        &.prev {
+            left: -15px;
+        }
+
+        &.next {
+            right: -15px;
+        }
+    }
+}
+
+
