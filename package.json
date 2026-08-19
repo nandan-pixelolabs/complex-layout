@@ -1,0 +1,26 @@
+{
+  "name": "montena",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass scss/style.scss css/style.css --watch",
+    "serve": "npx serve -p 3000 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandan-pixelolabs/complex-layout.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nandan-pixelolabs/complex-layout/issues"
+  },
+  "homepage": "https://github.com/nandan-pixelolabs/complex-layout#readme",
+  "devDependencies": {
+    "sass": "^1.102.0"
+  }
+}
