@@ -1,15 +1,24 @@
 @use "../variables" as *;
 @use "../mixins";
 
-/* Hero Section */
 .hero-slider {
     position: relative;
-    width: 100%;
-    height: 700px;
-    /* Adjust based on exact design */
-    height: clamp(500px, 70vh, 800px);
-    /* Responsive height */
-    @include mixins.flex-center;
+    width: calc(100vw - 60px);
+    max-width: none;
+    margin-left: calc(-50vw + 50% + 30px);
+    height: 650px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border: 1px solid rgba(235, 229, 207, 1);
+        pointer-events: none;
+        z-index: 10; /* Put border above image */
+    }
 }
 
 .hero-slide {
@@ -18,139 +27,153 @@
     left: 0;
     width: 100%;
     height: 100%;
-    @include mixins.flex-center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &.active {
+        opacity: 1;
+        z-index: 2;
+    }
 }
 
-/* Image background handling - Best practice for Shopify to avoid breaking */
 .hero-bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
-    z-index: -1;
+    display: block;
 }
 
 .hero-content {
-    text-align: center;
-    /* Center everything inside the container */
-    color: white;
-    z-index: 2;
     position: absolute;
     top: 216px;
     left: 80px;
-    max-width: 100%;
-    margin: 0;
-
+    width: 610px;
+    text-align: center;
+    color: white;
+    z-index: 5;
 
     h1 {
-        font-family: $primary-font;
-        font-size: 48px;
+        font-family: 'Lora', 'Libre Baskerville', serif;
+        font-size: 45px;
         font-weight: 400;
         line-height: 1.2;
-        margin-bottom: 25px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        /* better readability over image */
+        height: 100px; /* Exact height from Swift spec */
+        margin-top: 0;
+        margin-bottom: 20px; /* Mathematically exactly positions p to have 290pt gap */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     p {
+        font-family: 'Open Sans', sans-serif;
         font-size: 14px;
         font-weight: 600;
-        margin-bottom: 40px;
-        letter-spacing: 1px;
+        line-height: 24px;
+        height: 24px; /* Exact height from Swift spec */
+        margin-bottom: 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 230px;
+        height: 45px;
+        margin-top: 32px; /* Mathematically exactly positions button outline to have 208pt gap */
+        background-color: rgb(179, 34, 38);
+        color: white;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        border: none;
+        outline: 1px solid rgb(235, 229, 207);
+        outline-offset: 4px;
+        text-decoration: none;
+        line-height: 1.2;
+
+        &:hover {
+            background-color: darken(rgb(179, 34, 38), 10%);
+        }
+    }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 30px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 }
 
-.btn {
-    display: inline-block;
-    padding: 16px 60px;
-    /* Wider button */
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    line-height: 1.4;
-    margin-left: 20px;
-    /* Shifting button slightly to the right as requested */
-}
-
-.btn-primary {
-    background-color: $color-btn-red;
-    color: white;
-    border: 1px solid white;
-    position: relative;
-
-
-    &::after {
-        content: "";
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        /* Clear inner border */
-        pointer-events: none;
-    }
-
-    &:hover {
-        background-color: #981919;
-    }
-}
-
-/* Slider Arrows */
 .slider-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    padding: 0;
+    width: 40px; /* Exact width from Swift spec */
+    height: 40px; /* Exact height from Swift spec */
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid rgb(35, 31, 32); /* Outer dark stroke */
+    box-shadow: inset 0 0 0 2px white, inset 0 0 0 20px rgb(35, 31, 32); /* 2px white inset gap + 32px dark inner fill */
     cursor: pointer;
     z-index: 10;
-    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 
-
-    &:hover {
-        opacity: 0.7;
-    }
-
-    img {
-        height: 44px;
-        /* Default size for the full arrow image */
-        width: auto;
+    &::after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
     }
 
     &.prev {
-        left: -22px;
-        /* Half outside the image container */
+        left: -20px;
+        
+        &::after {
+            transform: rotate(-135deg);
+            margin-left: 4px; /* Simulates the offset */
+        }
     }
 
     &.next {
-        right: -22px;
-        /* Half outside the image container */
-    }
-}
+        right: -20px;
 
-@include mixins.tablet {
-    .hero-content {
-        h1 {
-            font-size: 36px;
+        &::after {
+            transform: rotate(45deg);
+            margin-right: 4px; /* Simulates the offset */
         }
     }
 }
 
-@include mixins.mobile {
+// Mobile View Only
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
     .hero-slider {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
         height: auto;
-        border: 1px solid #d4cdbd;
-        margin-top: 20px;
-        padding-bottom: 30px;
-        display: block;
+        padding-bottom: 40px;
+        margin-bottom: 20px;
+        margin-top: 0; // Remove top margin so it sits below nav
+
+        &::before {
+            top: 25px; /* Same inset as desktop */
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
+        }
     }
 
     .hero-slide {
@@ -158,78 +181,54 @@
         height: auto;
         display: flex;
         flex-direction: column;
+        padding: 25px 25px 0 25px; /* Image touches the frame exactly */
     }
 
     .hero-bg-img {
         position: relative;
+        height: 250px;
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        object-fit: cover;
         display: block;
-        z-index: 1;
     }
 
     .hero-content {
-        margin-top: 0;
         position: relative;
-        top: auto;
-        left: auto;
-        padding: 30px 20px 0;
-        text-align: center;
-        color: $color-text;
-
-        h1 {
-            font-family: $primary-font;
-            font-size: 34px;
-            line-height: 1.1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 40px 20px 30px; /* Padding for text inside frame */
+        color: #231f20;
+        
+        h1.mobile-only {
+            display: block !important;
+            font-size: 32px;
+            line-height: 1.2;
+            height: auto;
             margin-bottom: 25px;
+            color: #231f20;
             text-shadow: none;
-            color: #1a1a1a;
+            white-space: normal;
+            font-family: 'Lora', 'Libre Baskerville', serif;
         }
 
-        p {
-            display: none;
+        .btn {
+            width: calc(100% - 20px); /* 10px margin on each side */
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
         }
-    }
-
-    .btn {
-        padding: 16px 20px;
-        font-size: 14px;
-        width: calc(100% - 40px);
-        margin: 0 auto;
-        display: block;
-    }
-
-    .btn-primary {
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .slider-arrow {
-        width: 44px;
-        height: 44px;
-        opacity: 1;
-        display: flex;
-        top: 20vw;
-        transform: translateY(-50%);
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-
-        img {
-            height: 32px;
-            width: auto;
-        }
-
+        top: 150px; /* Center on image (25px padding + 125px half-height) */
+        
         &.prev {
-            left: -15px;
+            left: 5px; /* Center over 25px frame (5 + 20 radius = 25) */
         }
-
+        
         &.next {
-            right: -15px;
+            right: 5px; /* Center over 25px frame */
         }
     }
 }
-
-

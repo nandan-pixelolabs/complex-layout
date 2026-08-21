@@ -22,5 +22,8 @@
   "homepage": "https://github.com/nandan-pixelolabs/complex-layout#readme",
   "devDependencies": {
     "sass": "^1.102.0"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1"
   }
 }
