@@ -947,6 +947,11 @@ html {
   background-color: #fbf9f5;
 }
 
+.shop-categories .page-wrapper {
+  max-width: 100% !important;
+  padding: 0 10px !important;
+}
+
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1033,16 +1038,29 @@ html {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .bento-item {
+    grid-column: span 1 !important;
+  }
+  
+  /* Forces 1-2-1-2 layout (Item 1 spans 2, Item 2/3 span 1, Item 4 spans 2, Item 5/6 span 1) */
+  .bento-item:nth-child(1),
+  .bento-item:nth-child(4) {
+    grid-column: span 2 !important;
+  }
 }
 
 @media (max-width: 768px) {
   .bento-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: 300px;
+    gap: 10px;
   }
 
-  .bento-large {
-    grid-column: span 1;
+  .bento-item,
+  .bento-item:nth-child(1),
+  .bento-item:nth-child(4) {
+    grid-column: span 1 !important;
   }
 }
 
@@ -1703,91 +1721,89 @@ html {
     right: calc(50vw - 780px);
   }
 
+  .landscape-background {
+    height: 1075px;
+    min-height: 1075px;
+  }
+
   .landscape-background::after {
-    height: 15px;
+    height: 200px;
+    /* Reduced from 502px as requested to make the gradient smaller */
+    background: linear-gradient(to bottom,
+        rgba(251, 249, 245, 0) 0%,
+        rgb(251, 249, 245) 100%);
+    bottom: 0;
   }
 
   .intro-text {
-    max-width: 1534px;
+    max-width: 1180px;
   }
 
   .intro-text h2 {
-    font-size: 65px;
-  }
-
-  .fish-icon {
-    width: 170px;
-    height: 31px;
+    font-size: 50px;
+    height: 150px;
     margin-bottom: 50px;
+    /* Added to fix the gap between h2 and p */
   }
 
   .story-content p {
-    font-size: 18px;
-    font-weight: 400;
-    height: auto;
-    max-width: 900px;
+    font-size: 14px;
+    height: 96px;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+    /* Centered, with gap below */
   }
 
   .story-content .btn {
-    min-width: 360px;
-    padding: 22px 50px;
-    font-size: 18px;
-    font-weight: 600;
+    width: 301px;
+    min-width: 301px;
+    height: 57px;
+    padding: 0;
+    font-size: 15px;
+    letter-spacing: 2px;
   }
 
   .product-carousel-container {
-    max-width: 75vw !important;
-    margin: -450px auto 0 !important;
+    max-width: 1440px !important;
+    /* 1380px card + 60px total side padding for arrows */
+    margin: -350px auto 0 !important;
+    /* Adjusted to pull the card up */
   }
 
   .product-card {
-    min-height: 1000px !important;
+    height: 690px !important;
+    min-height: 690px !important;
+    position: relative;
+    padding: 40px 40px 40px 50px;
+    /* 50px left, 40px right to leave exactly 40px gap on the right side */
   }
 
-  .product-details h3 {
-    font-size: 55px;
-    margin-bottom: 25px;
-  }
 
-  .product-details .price {
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-
-  .product-details .reviews {
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-
-  .product-details .description {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.8;
-    margin-bottom: 50px;
-  }
-
-  .product-details .btn-shop {
-    font-size: 20px;
-    font-weight: 600;
-    padding: 20px 40px;
-    width: auto;
-    margin-bottom: 40px;
-    display: inline-block;
-  }
-
-  .features li {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
 
   .product-image-container {
-    flex: 0 0 50%;
+    flex: 0 0 610px;
+    height: 610px;
+    border: 1px solid rgb(251, 249, 245);
+    background-color: transparent;
   }
 
   .product-details {
-    flex: 0 0 50%;
+    flex: 0 0 680px;
+    height: 610px;
+    background: linear-gradient(to bottom, rgb(251, 249, 245) 0%, rgb(251, 249, 245) 100%);
+  }
+
+  /* --- Shop Categories (Bento Grid) --- */
+  .shop-categories {
+    padding-top: 10px;
+  }
+
+  .shop-categories .page-wrapper {
+    max-width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  .bento-grid {
+    gap: 10px;
   }
 }
