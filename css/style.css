@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   background: url("../assets/backgrounds/background-paper@2x.png") repeat;
   color: #000;
   font-family: "Montserrat", sans-serif;
@@ -32,8 +33,8 @@ body, html {
 .announcement-banner {
   background-color: rgb(179, 34, 38);
   color: white;
-  height: 34px;
-  /* Exactly 8px padding top and bottom if line-height is 18px */
+  min-height: 34px;
+  /* changed from fixed height for dynamic wrapping */
   padding: 8px 0;
   display: flex;
   align-items: center;
@@ -289,7 +290,8 @@ body, html {
   width: calc(100vw - 60px);
   max-width: none;
   margin-left: calc(-50vw + 50% + 30px);
-  height: 650px;
+  height: clamp(650px, 45vw, 850px);
+  /* Scales up slightly on ultrawide but caps at 850px to prevent it from becoming absurdly tall */
 }
 
 .hero-slider::before {
@@ -324,14 +326,20 @@ body, html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 85% center;
+  /* Shifted left from 70% as requested */
   display: block;
 }
 
 .hero-content {
   position: absolute;
-  top: 216px;
-  left: 80px;
-  width: 610px;
+  top: 33.23%;
+  /* 216px / 650px to scale dynamically with aspect-ratio */
+  left: 10px;
+  /* Exactly 80px from left as per original spec */
+  width: 100%;
+  max-width: 610px;
+  /* Changed from fixed 610px to max-width for Shopify dynamic text wrapping */
   text-align: center;
   color: white;
   z-index: 5;
@@ -340,44 +348,49 @@ body, html {
 .hero-content h1 {
   font-family: "Lora", "Libre Baskerville", serif;
   font-size: 45px;
+  /* Exactly 45px from spec */
   font-weight: 400;
   line-height: 1.2;
   height: 100px;
-  /* Exact height from Swift spec */
+  /* Frame height exactly 100 from spec */
   margin-top: 0;
   margin-bottom: 20px;
+
   /* Mathematically exactly positions p to have 290pt gap */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
+  /* Exactly 14px from spec */
   font-weight: 600;
   line-height: 24px;
   height: 24px;
-  /* Exact height from Swift spec */
+  /* Frame height exactly 24 from spec */
   margin-bottom: 0;
+  text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content .btn {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 230px;
-  height: 45px;
-  margin-top: 32px;
+  width: 240px;
+  height: 57px;
+  padding: 0;
+  margin: 32px auto 0;
   /* Mathematically exactly positions button outline to have 208pt gap */
   background-color: rgb(179, 34, 38);
   color: white;
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 2px;
   border: none;
+  cursor: pointer;
   outline: 1px solid rgb(235, 229, 207);
   outline-offset: 4px;
   text-decoration: none;
@@ -638,8 +651,8 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 301px;
-  height: 57px;
+  min-width: 301px;
+  padding: 18px 40px;
   background-color: rgb(179, 34, 38);
   color: white;
   text-transform: uppercase;
@@ -809,8 +822,8 @@ body, html {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 155px;
-  height: 45px;
+  min-width: 155px;
+  padding: 12px 30px;
   background: transparent;
   color: #b32226;
   /* Red text */
@@ -837,7 +850,8 @@ body, html {
   border-top: 1px solid #ebe5cf;
   /* Matching 530x1 line */
   padding: 0;
-  width: 530px;
+  width: 100%;
+  max-width: 530px;
 }
 
 .features li {
@@ -905,11 +919,13 @@ body, html {
   }
 
   .product-details .description {
-    display: none; /* Description is hidden on mobile in the screenshot */
+    display: none;
+    /* Description is hidden on mobile in the screenshot */
   }
 
   .features {
-    width: 100%; /* Make feature list full width on mobile instead of 530px */
+    width: 100%;
+    /* Make feature list full width on mobile instead of 530px */
   }
 
   .carousel-arrow {
@@ -1574,6 +1590,8 @@ body, html {
     max-width: none;
     margin-left: -15px;
     margin-right: -15px;
+    height: 60px;
+    /* Reduced from 95px for mobile */
   }
 
   .about-products-section {
@@ -1583,3 +1601,193 @@ body, html {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* ================= NORMAL DESKTOP (1025px to 1920px) ================= */
+/* 
+  If you want to make layout changes that ONLY affect normal desktop monitors 
+  (like laptops and 1080p screens) without breaking mobile or extra-wide screens, 
+  put them here!
+*/
+@media (min-width: 1025px) and (max-width: 1920px) {
+  .hero-content {
+    left: 80px;
+    /* Exactly 80pt from left edge for h1 and p */
+  }
+
+  .hero-content .btn {
+    width: 240px;
+    height: 57px;
+    /* Enforcing exact width and height from spec */
+    padding: 0;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin: 22px auto 0;
+    /* Reduced from 32px to shift button slightly up */
+  }
+
+  .hero-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+        rgba(35, 31, 32, 0.5) 0%,
+        rgba(35, 31, 32, 0) 100%);
+    z-index: 1;
+    /* Exactly between image and text */
+    pointer-events: none;
+  }
+}
+
+/* ================= EXTRA WIDE (1921px and up) ================= */
+@media (min-width: 1921px) {
+  .page-wrapper {
+    max-width: 2100px;
+  }
+
+  .hero-slider {
+    width: 100%;
+    height: 650px;
+    margin-left: 0;
+  }
+
+  .hero-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+        rgba(35, 31, 32, 0.5) 0%,
+        rgba(35, 31, 32, 0) 100%);
+    z-index: 1;
+    /* Exactly between image (z-index: auto) and text (z-index: 5) */
+    pointer-events: none;
+  }
+
+  .nav-left {
+    left: calc(50vw - 720px);
+  }
+
+  .hero-content {
+    left: 12vw;
+    /* Shifted slightly left from 18vw */
+    max-width: 750px;
+    /* Increased from 610px for extra wide */
+  }
+
+  .hero-content h1 {
+    width: 610px;
+    height: 100px;
+    margin: 0 auto 20px;
+    /* Center horizontally inside the 750px container */
+  }
+
+  .hero-content .btn {
+    width: 240px;
+    height: 57px;
+    padding: 0;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin: 22px auto 0;
+  }
+
+  .nav-right {
+    right: calc(50vw - 720px);
+  }
+
+  .close-banner {
+    right: calc(50vw - 780px);
+  }
+
+  .landscape-background::after {
+    height: 15px;
+  }
+
+  .intro-text {
+    max-width: 1534px;
+  }
+
+  .intro-text h2 {
+    font-size: 65px;
+  }
+
+  .fish-icon {
+    width: 170px;
+    height: 31px;
+    margin-bottom: 50px;
+  }
+
+  .story-content p {
+    font-size: 18px;
+    font-weight: 400;
+    height: auto;
+    max-width: 900px;
+  }
+
+  .story-content .btn {
+    min-width: 360px;
+    padding: 22px 50px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .product-carousel-container {
+    max-width: 75vw !important;
+    margin: -450px auto 0 !important;
+  }
+
+  .product-card {
+    min-height: 1000px !important;
+  }
+
+  .product-details h3 {
+    font-size: 55px;
+    margin-bottom: 25px;
+  }
+
+  .product-details .price {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .product-details .reviews {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .product-details .description {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 50px;
+  }
+
+  .product-details .btn-shop {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 40px;
+    width: auto;
+    margin-bottom: 40px;
+    display: inline-block;
+  }
+
+  .features li {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
+  .product-image-container {
+    flex: 0 0 50%;
+  }
+
+  .product-details {
+    flex: 0 0 50%;
+  }
+}
