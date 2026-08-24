@@ -1240,7 +1240,7 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 35px 0 0 0;
+  padding: 35px 0 40px 0; /* Added 40px bottom padding for the white gap */
 }
 
 .instagram-header {
@@ -1350,23 +1350,16 @@ html {
 
 .footer-landscape {
   width: 100%;
-  aspect-ratio: 1440/780;
-  background-color: transparent;
-  background-size: 100% auto;
-  background-position: center bottom;
+  aspect-ratio: 1440/699; /* Maintain exact proportions */
+  background-color: #ffffff !important;
+  background-size: cover !important;
+  background-position: center top !important; /* Anchor to top */
   background-repeat: no-repeat;
   position: relative;
 }
 
 .footer-landscape::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(to bottom, rgba(17, 17, 17, 0) 0%, #111 100%);
-  pointer-events: none;
+  display: none !important; /* Removed black gradient as requested */
 }
 
 .footer-content-wrapper {
@@ -1383,23 +1376,24 @@ html {
   align-items: flex-start;
   flex-direction: row;
   padding-bottom: 60px;
+  gap: 40px; /* Ensures dynamic spacing between all 3 main columns */
 }
 
 .footer-col-logo {
   flex: 0 0 auto;
-  padding-right: 60px;
+  padding-right: 40px; /* Reduced from 60px */
   border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-col-logo img {
-  width: 250px;
+  width: 220px; /* Professional size */
   height: auto;
 }
 
 .footer-col-newsletter {
   flex: 1;
   max-width: 450px;
-  margin: 0 0 0 60px;
+  margin: 0; /* Let gap handle spacing */
 }
 
 .footer-col-newsletter h4 {
@@ -1484,9 +1478,9 @@ html {
 .footer-col-links {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start; /* Better alignment for columns of text */
   flex-direction: row;
-  gap: 100px;
+  gap: 60px; /* Reduced from 100px to prevent overflow */
 }
 
 .link-group h4 {
@@ -1540,6 +1534,34 @@ html {
   color: #fff;
 }
 
+@media (max-width: 1024px) {
+  .footer-main {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 40px;
+  }
+  .footer-col-logo {
+    flex: 0 0 100%;
+    text-align: center;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 40px;
+  }
+  .footer-col-newsletter {
+    flex: 1;
+    min-width: 300px;
+    margin: 0;
+  }
+  .footer-col-links {
+    flex: 1;
+    min-width: 300px;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer-main {
     flex-direction: column;
@@ -1550,11 +1572,15 @@ html {
 
   .footer-col-logo {
     order: 3;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reduced from 40px */
     padding-right: 0;
     border-right: none;
     position: relative;
     display: inline-block;
+  }
+
+  .footer-col-logo img {
+    width: 320px; /* Increased logo size for mobile */
   }
 
   .back-to-top {
@@ -1817,8 +1843,8 @@ html {
   .instagram-section {
     width: 100%;
     max-width: none;
-    height: 904px;
-    padding: 35px 10px 0 10px; /* 10pt padding */
+    height: auto; /* Allow content to dictate height */
+    padding: 35px 10px 40px 10px; /* Added 40px bottom padding for the gap */
     box-sizing: border-box;
     margin: 0;
     background-color: #ffffff !important;
@@ -1827,6 +1853,26 @@ html {
 
   .instagram-grid {
     padding: 0; /* Let section padding handle the edges */
+  }
+
+  /* --- Footer Section --- */
+  .site-footer {
+    background-color: rgb(15, 12, 7) !important;
+  }
+
+  .footer-landscape {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1440 / 699; /* Maintain exact proportions so it never crops */
+    margin-top: 0; /* Removed margin, using instagram padding-bottom instead */
+    background-size: cover !important;
+    background-position: center top !important; /* Anchor to top */
+    background-color: #ffffff !important;
+  }
+
+  .footer-landscape::after {
+    display: none !important; /* Removed black gradient as requested */
   }
 }
 
@@ -2051,7 +2097,8 @@ html {
   /* --- Instagram Section --- */
   .instagram-section {
     max-width: 2100px;
-    height: 904px;
+    height: auto;
+    padding-bottom: 40px; /* Added 40px bottom padding for the white gap */
     margin: 0 auto;
     background-color: #ffffff !important;
     background-image: none !important; /* Remove paper texture inline style */
@@ -2063,6 +2110,33 @@ html {
   }
 
   .instagram-grid {
+    padding-left: 347px;
+    padding-right: 332px;
+  }
+
+  /* --- Footer Section --- */
+  .site-footer {
+    background-color: rgb(15, 12, 7) !important;
+  }
+
+  .footer-landscape {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1440 / 699; /* Maintain exact proportions so it never crops */
+    margin-top: 0;
+    background-size: cover !important;
+    background-position: center top !important; /* Anchor to top */
+    background-color: #ffffff !important;
+  }
+
+  .footer-landscape::after {
+    display: none !important; /* Removed black gradient as requested */
+  }
+
+  .footer-content-wrapper {
+    max-width: 2100px;
+    margin: 0 auto;
     padding-left: 347px;
     padding-right: 332px;
   }
