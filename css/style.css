@@ -1072,6 +1072,8 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .testimonial-section::before {
@@ -1089,7 +1091,7 @@ html {
 .lure-left,
 .lure-right {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
 }
 
 .lure-1 {
@@ -1169,6 +1171,41 @@ html {
   opacity: 0.8;
 }
 
+@media (max-width: 1024px) {
+  .testimonial-section {
+    padding: 30px 0 30px 0 !important;
+  }
+
+  .testimonial-content {
+    border: 1px solid rgb(235, 229, 207) !important;
+    padding: 40px 20px;
+    margin: 0 15px; /* Keep it away from screen edges */
+    height: auto;
+  }
+
+  .testimonial-section blockquote {
+    font-size: 22px;
+    text-align: center;
+    text-align-last: auto;
+    margin: 20px 0; /* Add some space around the quote */
+  }
+
+  .testimonial-author {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-divider {
+    display: block !important;
+    position: absolute;
+    bottom: -42px; /* Center of the 24px icon sits exactly on the 30px background edge */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 768px) {
 
   .lure-2,
@@ -1177,38 +1214,28 @@ html {
   }
 
   .lure-1 {
-    width: 100px;
-    bottom: 20px;
-    left: -10px;
+    width: 137px;
+    bottom: -4px;
+    left: -28px;
   }
 
   .lure-4 {
     display: block;
-    width: 100px;
-    top: -35px;
-    right: -10px;
+    width: 193px;
+    height: 191px;
+    top: -62px;
+    right: -1px;
     bottom: auto;
-    transform: rotate(-20deg);
+    transform: rotate(-7deg);
   }
 
-  .testimonial-section {
-    padding: 60px 0 30px 0;
-  }
-
-  .testimonial-section blockquote {
-    font-size: 22px;
-    text-align: center;
-    text-align-last: auto;
-  }
-
-  .testimonial-author {
-    margin-bottom: 80px;
-  }
+  /* Testimonial layout moved to 1024px media query */
 }
 
 /* Instagram Section */
 .instagram-section {
-  background-color: #fbf9f5;
+  background-color: #ffffff !important;
+  background-image: none !important; /* Remove paper texture inline style */
   /* Fallback */
   background-size: cover;
   background-position: center;
@@ -1299,8 +1326,8 @@ html {
 
   .instagram-grid {
     gap: 12px;
-    padding: 0 15px;
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px; /* 10pt padding */
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row (2-2-2) */
   }
 }
 
@@ -1657,6 +1684,150 @@ html {
     /* Exactly between image and text */
     pointer-events: none;
   }
+
+  /* --- Testimonial Section (Same as Extra Wide) --- */
+  .testimonial-section {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .testimonial-divider {
+    display: block !important;
+    position: absolute;
+    bottom: -42px; /* Center of the 24px icon sits exactly on the 30px background edge */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .lure-left,
+  .lure-right {
+    z-index: 3 !important;
+  }
+
+  .lure-1 {
+    width: 189.5px;
+    height: 126.3px;
+    top: 250px;
+    left: -20px;
+    bottom: auto;
+    transform: rotate(127deg);
+  }
+
+  .lure-2 {
+    width: 149.6px;
+    height: 206px;
+    bottom: -60px;
+    left: -10px;
+    top: auto;
+    transform: rotate(119deg);
+  }
+
+  .lure-3 {
+    width: 216.7px;
+    height: 122px;
+    top: -20px;
+    right: -20px;
+    bottom: auto;
+    transform: rotate(53deg);
+  }
+
+  .lure-4 {
+    width: 183.3px;
+    height: 256px;
+    top: 150px;
+    right: -30px;
+    bottom: auto;
+    transform: rotate(20deg);
+  }
+
+  .testimonial-content {
+    max-width: 1400px;
+    height: 488px;
+    margin: 0 auto;
+    border: 1px solid rgb(235, 229, 207);
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .testimonial-section blockquote {
+    font-size: 30px !important;
+    line-height: 36px !important;
+    color: rgb(35, 31, 32);
+    width: 1000px;
+    max-width: 1000px;
+    height: 144px;
+    margin: 30px auto 0 !important;
+    text-align: center;
+  }
+
+  .testimonial-author {
+    font-size: 16px !important;
+    font-weight: 700;
+    color: rgb(35, 31, 32);
+    line-height: 24px;
+    margin-top: 30px !important;
+    text-align: center;
+  }
+
+  .instagram-header h2 {
+    font-family: "Lora", serif;
+    font-size: 40px !important;
+    font-weight: 400;
+    color: rgb(35, 31, 32) !important;
+    line-height: 40px;
+    margin: 0;
+  }
+
+  .instagram-link {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px !important;
+    font-weight: 700;
+    color: rgb(35, 31, 32) !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 0;
+  }
+
+  .instagram-link::after {
+    content: "";
+    position: absolute;
+    bottom: -12.5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(179, 34, 38);
+  }
+
+  /* --- Instagram Section --- */
+  .instagram-section {
+    width: 100%;
+    max-width: none;
+    height: 904px;
+    padding: 35px 10px 0 10px; /* 10pt padding */
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  .instagram-grid {
+    padding: 0; /* Let section padding handle the edges */
+  }
 }
 
 /* ================= EXTRA WIDE (1921px and up) ================= */
@@ -1805,5 +1976,94 @@ html {
 
   .bento-grid {
     gap: 10px;
+  }
+
+  /* --- Testimonial Section --- */
+  .testimonial-section {
+    padding-top: 30px !important;
+    padding-bottom: 10px !important; /* Background image ends 10px below the rectangle */
+  }
+
+  .testimonial-divider {
+    display: block !important; /* Restore the fish icon */
+    position: absolute;
+    bottom: -22px; /* Center of the 24px icon sits exactly on the 10px background edge */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .lure-left,
+  .lure-right {
+    z-index: 3 !important; /* Ensure lures appear ABOVE the thin rectangle */
+  }
+
+  .lure-1 {
+    width: 274px;
+    height: 126px;
+    top: 355px;
+    bottom: auto;
+    left: -58px;
+    transform: rotate(16deg);
+  }
+
+  .testimonial-content {
+    max-width: 1400px;
+    height: 488px;
+    margin: 0 auto;
+    border: 1px solid rgb(235, 229, 207);
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .testimonial-section blockquote {
+    font-size: 30px !important;
+    line-height: 36px !important; /* 144px height / 4 lines */
+    color: rgb(35, 31, 32);
+    width: 1000px;
+    max-width: 1000px;
+    height: 144px;
+    margin: 30px auto 0 !important; /* 190pt top - 160pt (avatar bottom) = 30pt gap */
+    text-align: center;
+  }
+
+  .testimonial-author {
+    font-size: 16px !important;
+    font-weight: 700; /* Lora-Bold */
+    color: rgb(35, 31, 32);
+    line-height: 24px;
+    margin-top: 30px !important; /* 30pt gap from quote */
+    text-align: center;
+  }
+
+  /* --- Instagram Section --- */
+  .instagram-section {
+    max-width: 2100px;
+    height: 904px;
+    margin: 0 auto;
+    background-color: #ffffff !important;
+    background-image: none !important; /* Remove paper texture inline style */
+  }
+
+  .instagram-section .page-wrapper {
+    padding-left: 347px;
+    padding-right: 332px;
+  }
+
+  .instagram-grid {
+    padding-left: 347px;
+    padding-right: 332px;
   }
 }
