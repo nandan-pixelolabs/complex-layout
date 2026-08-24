@@ -1372,11 +1372,11 @@ html {
 
 .footer-main {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Group left items together */
   align-items: flex-start;
   flex-direction: row;
   padding-bottom: 60px;
-  gap: 40px; /* Ensures dynamic spacing between all 3 main columns */
+  gap: 40px; /* Fixed gap between logo and newsletter */
 }
 
 .footer-col-logo {
@@ -1392,7 +1392,7 @@ html {
 
 .footer-col-newsletter {
   flex: 1;
-  max-width: 450px;
+  max-width: 550px; /* Increased width */
   margin: 0; /* Let gap handle spacing */
 }
 
@@ -1480,7 +1480,8 @@ html {
   justify-content: flex-start;
   align-items: flex-start; /* Better alignment for columns of text */
   flex-direction: row;
-  gap: 60px; /* Reduced from 100px to prevent overflow */
+  gap: 80px; /* Slightly increased gap between the two link sections */
+  margin-left: 120px; /* Fixed margin instead of auto to pull them leftwards */
 }
 
 .link-group h4 {
@@ -1559,6 +1560,7 @@ html {
     min-width: 300px;
     justify-content: flex-start;
     gap: 40px;
+    margin-left: 0; /* Reset desktop auto margin */
   }
 }
 
