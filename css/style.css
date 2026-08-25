@@ -367,6 +367,17 @@ button {
   display: block;
   z-index: 1;
 }
+.hero-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(35, 31, 32, 0.5) 0%, rgba(35, 31, 32, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
 
 .hero-container {
   height: 100%;
@@ -384,6 +395,7 @@ button {
   color: white;
   z-index: 5;
   margin-left: 10px;
+  left: 80px;
 }
 
 .hero-content h1 {
@@ -421,13 +433,13 @@ button {
   width: 240px;
   height: 57px;
   padding: 0;
-  margin: 32px auto 0;
+  margin: 22px auto 0;
   /* Mathematically exactly positions button outline to have 208pt gap */
   background-color: var(--color-primary);
   color: white;
   text-transform: uppercase;
   font-family: var(--font-primary);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 2px;
   border: none;
@@ -1357,37 +1369,6 @@ button {
   put them here!
 */
 @media (min-width: 1025px) {
-  .hero-content {
-    left: 80px;
-    /* Exactly 80pt from left edge for h1 and p */
-  }
-
-  .hero-content .btn {
-    width: 240px;
-    height: 57px;
-    /* Enforcing exact width and height from spec */
-    padding: 0;
-    font-size: 15px;
-    letter-spacing: 2px;
-    margin: 22px auto 0;
-    /* Reduced from 32px to shift button slightly up */
-  }
-
-  .hero-slide::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg,
-        rgba(35, 31, 32, 0.5) 0%,
-        rgba(35, 31, 32, 0) 100%);
-    z-index: 1;
-    /* Exactly between image and text */
-    pointer-events: none;
-  }
-
   /* --- Testimonial Section (Same as Extra Wide) --- */
   .testimonial-section {
     padding-top: 30px;
@@ -2161,6 +2142,19 @@ button {
 
 /* Consolidated @media (max-width: 1024px) */
 @media (max-width: 1024px) {
+  .hero-content {
+    left: auto;
+  }
+  
+  .hero-content .btn {
+    margin: 32px auto 0;
+    font-size: 17px;
+  }
+
+  .hero-slide::after {
+    display: none;
+  }
+
   .landscape-background {
     height: 0;
     min-height: 0;
@@ -2248,7 +2242,6 @@ button {
   .footer-main {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px;
     padding-bottom: var(--space-2xl);
   }
 
@@ -2275,7 +2268,6 @@ button {
     flex: 1;
     width: 300px;
     justify-content: flex-start;
-    gap: var(--space-2xl);
     margin-left: 0;
     /* Reset desktop auto margin */
   }
