@@ -21,8 +21,8 @@
     </button>
   </div>
 
-  <div class="page-wrapper">
-    <header class="site-header">
+  <header class="site-header">
+    <div class="container flex flex-justify-between flex-align-center">
       <nav class="nav-left">
         <div class="hamburger">
           <span></span>
@@ -42,11 +42,13 @@
           <img src="assets/icons/icon-nav-cart@2x.png" alt="Cart" />
         </a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <section class="hero-slider">
-      <div class="hero-slide active">
-        <img src="assets/photos/flyfishing-mt-bynum-2-3@3x.png" alt="Fly fishing" class="hero-bg-img" />
+  <section class="hero-slider">
+    <div class="hero-slide active">
+      <img src="assets/photos/flyfishing-mt-bynum-2-3@3x.png" alt="Fly fishing" class="hero-bg-img" />
+      <div class="container hero-container">
         <div class="hero-content">
           <h1 class="desktop-only">
             Fly fishing gear rigorously tested on Montana waters.
@@ -59,16 +61,16 @@
           </p>
           <a href="#" class="btn btn-primary">OPTIONAL BUTTON</a>
         </div>
+        </div>
       </div>
 
       <button class="slider-arrow prev"></button>
       <button class="slider-arrow next"></button>
-    </section>
-  </div>
-  <!-- End of first page-wrapper -->
+    </div>
+  </section>
 
   <section class="about-products-section">
-    <div class="page-wrapper">
+    <div class="container">
       <div class="intro-text">
         <img src="assets/icons/icon-two-fish@2x.png" alt="Fish Icon" class="fish-icon" />
         <h2>
@@ -134,7 +136,7 @@
 
   <!-- Shop Categories Section -->
   <section class="shop-categories">
-    <div class="page-wrapper">
+    <div class="container">
       <div class="bento-grid">
         <!-- Row 1 -->
         <a href="#" class="bento-item bento-large">
@@ -188,13 +190,9 @@
   <section class="testimonial-section" style="
         background-image: url(&quot;assets/backgrounds/background-paper-2@2x.png&quot;);
       ">
-    <!-- Decorative Lures -->
-    <img src="assets/photos/bitmap.png" alt="" class="lure-left lure-1" />
-    <img src="assets/photos/bitmap-3@2x.png" alt="" class="lure-left lure-2" />
-    <img src="assets/photos/bitmap-2@2x.png" alt="" class="lure-right lure-3" />
-    <img src="assets/photos/bitmap@2x.png" alt="" class="lure-right lure-4" />
+    <!-- Decorative Lures now handled via CSS pseudo-elements -->
 
-    <div class="page-wrapper">
+    <div class="container">
       <div class="testimonial-content">
         <img src="assets/photos/mike-carisch-1@2x.png" alt="Mike C." class="testimonial-avatar" />
         <blockquote>
@@ -213,7 +211,7 @@
   <section class="instagram-section" style="
         background-image: url(&quot;assets/backgrounds/background-paper-2@2x.png&quot;);
       ">
-    <div class="page-wrapper">
+    <div class="container">
       <div class="instagram-header">
         <h2>@montanacastingco</h2>
         <a href="#" class="instagram-link">FOLLOW US ON INSTAGRAM</a>
@@ -239,7 +237,7 @@
     <div class="footer-landscape" style="
           background-image: url(&quot;assets/backgrounds/footer-landscape-desktop@2x.png&quot;);
         "></div>
-    <div class="footer-content-wrapper">
+    <div class="container footer-container">
       <div class="footer-main">
         <div class="footer-col-logo">
           <img src="assets/logos/logo-white-line@2x.png" alt="Montana Casting Co. Logo" class="footer-logo" />
@@ -251,7 +249,8 @@
           <h4>STAY IN THE KNOW</h4>
           <h2>Newsletter Signup</h2>
           <form class="newsletter-form">
-            <input type="email" placeholder="Email Address" required />
+            <label class="sr-only" for="newsletter-email">Email Address</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Email Address" required />
             <button type="submit">
               SUBMIT
               <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
