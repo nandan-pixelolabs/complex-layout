@@ -1,0 +1,715 @@
+diff --git a/css/style.css b/css/style.css
+index 9982001..a9df8e0 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -16,27 +16,46 @@
+   --font-heading-alt: "Libre Baskerville", serif;
+ 
+   /* Typography Scale */
+-  --font-size-xs: 0.6875rem;    /* 11px */
+-  --font-size-sm: 0.75rem;      /* 12px */
+-  --font-size-body-sm: 0.875rem; /* 14px */
+-  --font-size-body: 1rem;       /* 16px */
+-  --font-size-md: 1.375rem;     /* 22px */
+-  --font-size-lg: 1.875rem;     /* 30px */
+-  --font-size-xl: 2rem;         /* 32px */
+-  --font-size-2xl: 2.8125rem;   /* 45px */
+-  --font-size-3xl: 3.125rem;    /* 50px */
++  --font-size-xs: 0.6875rem;
++  /* 11px */
++  --font-size-sm: 0.75rem;
++  /* 12px */
++  --font-size-body-sm: 0.875rem;
++  /* 14px */
++  --font-size-body: 1rem;
++  /* 16px */
++  --font-size-md: 1.375rem;
++  /* 22px */
++  --font-size-lg: 1.875rem;
++  /* 30px */
++  --font-size-xl: 2rem;
++  /* 32px */
++  --font-size-2xl: 2.8125rem;
++  /* 45px */
++  --font-size-3xl: 3.125rem;
++  /* 50px */
+ 
+   /* Spacing Scale */
+-  --space-2xs: 0.5rem;   /* 8px */
+-  --space-xs: 0.75rem;   /* 12px */
+-  --space-sm: 1rem;      /* 16px */
+-  --space-md: 1.25rem;   /* 20px */
+-  --space-lg: 1.5rem;    /* 24px */
+-  --space-xl: 2rem;      /* 32px */
+-  --space-2xl: 2.5rem;   /* 40px */
+-  --space-3xl: 3.75rem;  /* 60px */
+-  --space-4xl: 5rem;     /* 80px */
+-  --space-5xl: 7.5rem;   /* 120px */
++  --space-2xs: 0.5rem;
++  /* 8px */
++  --space-xs: 0.75rem;
++  /* 12px */
++  --space-sm: 1rem;
++  /* 16px */
++  --space-md: 1.25rem;
++  /* 20px */
++  --space-lg: 1.5rem;
++  /* 24px */
++  --space-xl: 2rem;
++  /* 32px */
++  --space-2xl: 2.5rem;
++  /* 40px */
++  --space-3xl: 3.75rem;
++  /* 60px */
++  --space-4xl: 5rem;
++  /* 80px */
++  --space-5xl: 7.5rem;
++  /* 120px */
+ 
+   /* Layout */
+   --container-max-width: 1600px;
+@@ -111,10 +130,22 @@ button {
+   position: relative;
+   padding: 0 30px;
+ }
+-.flex { display: flex; }
+-.flex-justify-between { justify-content: space-between; }
+-.flex-align-center { align-items: center; }
+-.flex-column { flex-direction: column; }
++
++.flex {
++  display: flex;
++}
++
++.flex-justify-between {
++  justify-content: space-between;
++}
++
++.flex-align-center {
++  align-items: center;
++}
++
++.flex-column {
++  flex-direction: column;
++}
+ 
+ 
+ 
+@@ -183,8 +214,13 @@ button {
+ .nav-left {
+   display: flex;
+   align-items: center;
+-  gap: var(--space-3xl);
+-  flex: 1; /* Pushes logo to center */
++  /* gap removed */
++  flex: 1;
++  /* Pushes logo to center */
++}
++
++.nav-left > *:not(:last-child) {
++  margin-right: var(--space-3xl);
+ }
+ 
+ .nav-left .hamburger {
+@@ -209,7 +245,8 @@ button {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+-  flex: 1; /* Pushes logo to center */
++  flex: 1;
++  /* Pushes logo to center */
+ }
+ 
+ .nav-right a {
+@@ -261,7 +298,8 @@ button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+-  transform: translateY(47px); /* Overlap header and hero visually without leaving document flow */
++  transform: translateY(47px);
++  /* Overlap header and hero visually without leaving document flow */
+ }
+ 
+ .logo a {
+@@ -679,10 +717,14 @@ button {
+   justify-content: flex-start;
+   align-items: center;
+   flex-direction: row;
+-  gap: 10px;
++  /* gap removed */
+   margin-bottom: 25px;
+ }
+ 
++.reviews > *:not(:last-child) {
++  margin-right: 10px;
++}
++
+ .stars {
+   color: #444;
+   font-size: var(--font-size-body-sm);
+@@ -776,10 +818,11 @@ button {
+ .bento-grid {
+   display: flex;
+   flex-wrap: wrap;
+-  gap: 15px;
++  justify-content: space-between;
+ }
+ 
+ .bento-item {
++  margin-bottom: 15px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+@@ -922,11 +965,11 @@ button {
+ /* Lure 3 (Top Right) */
+ .testimonial-content::before {
+   background-image: url("../assets/photos/lure3.png");
+-  width: 150px;
+-  height: 150px;
+-  top: -20px;
++  width: 217px;
++  height: 122px;
++  top: -4px;
+   right: -20px;
+-  transform: rotate(-2deg);
++  transform: rotate(53deg);
+ }
+ 
+ /* Lure 4 (Bottom Right) */
+@@ -993,12 +1036,14 @@ button {
+ /* Instagram Section */
+ .instagram-section {
+   background-color: var(--color-white);
+-  background-image: none; /* Remove paper texture inline style */
++  background-image: none;
++  /* Remove paper texture inline style */
+   /* Fallback */
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+-  padding: 35px 0 var(--space-2xl) 0; /* Added 40px bottom padding for the white gap */
++  padding: 35px 0 var(--space-2xl) 0;
++  /* Added 40px bottom padding for the white gap */
+ }
+ 
+ .instagram-header {
+@@ -1044,11 +1089,12 @@ button {
+ .instagram-grid {
+   display: flex;
+   flex-wrap: wrap;
+-  gap: 15px;
++  justify-content: space-between;
+   padding: 0 10px;
+ }
+ 
+ .instagram-item {
++  margin-bottom: 15px;
+   display: block;
+   width: calc(16.666% - 12.5px);
+   aspect-ratio: 1/1;
+@@ -1089,16 +1135,19 @@ button {
+ 
+ .footer-landscape {
+   width: 100%;
+-  aspect-ratio: 1440/699; /* Maintain exact proportions */
++  aspect-ratio: 1440/699;
++  /* Maintain exact proportions */
+   background-color: var(--color-white);
+   background-size: cover;
+-  background-position: center top; /* Anchor to top */
++  background-position: center top;
++  /* Anchor to top */
+   background-repeat: no-repeat;
+   position: relative;
+ }
+ 
+ .footer-landscape::after {
+-  display: none; /* Removed black gradient as requested */
++  display: none;
++  /* Removed black gradient as requested */
+ }
+ 
+ .footer-content-wrapper {
+@@ -1111,28 +1160,38 @@ button {
+ 
+ .footer-main {
+   display: flex;
+-  justify-content: flex-start; /* Group left items together */
++  justify-content: flex-start;
++  /* Group left items together */
+   align-items: flex-start;
+   flex-direction: row;
+   padding-bottom: var(--space-3xl);
+-  gap: var(--space-2xl); /* Fixed gap between logo and newsletter */
++  /* gap removed */
++  /* Fixed gap between logo and newsletter */
++}
++
++.footer-main > *:not(:last-child) {
++  margin-right: var(--space-2xl);
+ }
+ 
+ .footer-col-logo {
+   flex: 0 0 auto;
+-  padding-right: var(--space-2xl); /* Reduced from 60px */
++  padding-right: var(--space-2xl);
++  /* Reduced from 60px */
+   border-right: 1px solid rgba(255, 255, 255, 0.15);
+ }
+ 
+ .footer-col-logo img {
+-  width: 220px; /* Professional size */
++  width: 220px;
++  /* Professional size */
+   height: auto;
+ }
+ 
+ .footer-col-newsletter {
+   flex: 1;
+-  max-width: 550px; /* Increased width */
+-  margin: 0; /* Let gap handle spacing */
++  max-width: 550px;
++  /* Increased width */
++  margin: 0;
++  /* Let gap handle spacing */
+ }
+ 
+ .footer-col-newsletter h4 {
+@@ -1187,7 +1246,7 @@ button {
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+-  gap: 10px;
++  /* gap removed */
+ }
+ 
+ .footer-socials {
+@@ -1195,7 +1254,7 @@ button {
+   justify-content: flex-start;
+   align-items: center;
+   flex-direction: row;
+-  gap: var(--space-md);
++  /* gap removed */
+   margin-bottom: 25px;
+ }
+ 
+@@ -1217,10 +1276,17 @@ button {
+ .footer-col-links {
+   display: flex;
+   justify-content: flex-start;
+-  align-items: flex-start; /* Better alignment for columns of text */
++  align-items: flex-start;
++  /* Better alignment for columns of text */
+   flex-direction: row;
+-  gap: var(--space-4xl); /* Slightly increased gap between the two link sections */
+-  margin-left: var(--space-5xl); /* Fixed margin instead of auto to pull them leftwards */
++  /* gap removed */
++  /* Slightly increased gap between the two link sections */
++  margin-left: var(--space-5xl);
++  /* Fixed margin instead of auto to pull them leftwards */
++}
++
++.footer-col-links > *:not(:last-child) {
++  margin-right: var(--space-4xl);
+ }
+ 
+ .link-group h4 {
+@@ -1329,7 +1395,8 @@ button {
+   .testimonial-divider {
+     display: block;
+     position: absolute;
+-    bottom: -42px; /* Center of the 24px icon sits exactly on the 30px background edge */
++    bottom: -42px;
++    /* Center of the 24px icon sits exactly on the 30px background edge */
+     left: 50%;
+     transform: translateX(-50%);
+     width: 130px;
+@@ -1414,8 +1481,10 @@ button {
+   .instagram-section {
+     width: 100%;
+     max-width: none;
+-    height: auto; /* Allow content to dictate height */
+-    padding: 35px 10px var(--space-2xl) 10px; /* Added 40px bottom padding for the gap */
++    height: auto;
++    /* Allow content to dictate height */
++    padding: 35px 10px var(--space-2xl) 10px;
++    /* Added 40px bottom padding for the gap */
+     box-sizing: border-box;
+     margin: 0;
+     background-color: var(--color-white);
+@@ -1423,7 +1492,8 @@ button {
+   }
+ 
+   .instagram-grid {
+-    padding: 0; /* Let section padding handle the edges */
++    padding: 0;
++    /* Let section padding handle the edges */
+   }
+ 
+   /* --- Footer Section --- */
+@@ -1435,15 +1505,19 @@ button {
+     width: 100%;
+     max-width: none;
+     height: auto;
+-    aspect-ratio: 1440 / 699; /* Maintain exact proportions so it never crops */
+-    margin-top: 0; /* Removed margin, using instagram padding-bottom instead */
++    aspect-ratio: 1440 / 699;
++    /* Maintain exact proportions so it never crops */
++    margin-top: 0;
++    /* Removed margin, using instagram padding-bottom instead */
+     background-size: cover;
+-    background-position: center top; /* Anchor to top */
++    background-position: center top;
++    /* Anchor to top */
+     background-color: var(--color-white);
+   }
+ 
+   .footer-landscape::after {
+-    display: none; /* Removed black gradient as requested */
++    display: none;
++    /* Removed black gradient as requested */
+   }
+ }
+ 
+@@ -1591,20 +1665,19 @@ button {
+     padding: 0 10px;
+   }
+ 
+-  .bento-grid {
+-    gap: 10px;
+-  }
+-
+   /* --- Testimonial Section --- */
+   .testimonial-section {
+     padding-top: 30px;
+-    padding-bottom: 10px; /* Background image ends 10px below the rectangle */
++    padding-bottom: 10px;
++    /* Background image ends 10px below the rectangle */
+   }
+ 
+   .testimonial-divider {
+-    display: block; /* Restore the fish icon */
++    display: block;
++    /* Restore the fish icon */
+     position: absolute;
+-    bottom: -22px; /* Center of the 24px icon sits exactly on the 10px background edge */
++    bottom: -22px;
++    /* Center of the 24px icon sits exactly on the 10px background edge */
+     left: 50%;
+     transform: translateX(-50%);
+     width: 130px;
+@@ -1636,21 +1709,25 @@ button {
+ 
+   .testimonial-section blockquote {
+     font-size: var(--font-size-lg);
+-    line-height: 36px; /* 144px height / 4 lines */
++    line-height: 36px;
++    /* 144px height / 4 lines */
+     color: var(--color-text);
+     width: 1000px;
+     max-width: 1000px;
+     height: 144px;
+-    margin: 30px auto 0; /* 190pt top - 160pt (avatar bottom) = 30pt gap */
++    margin: 30px auto 0;
++    /* 190pt top - 160pt (avatar bottom) = 30pt gap */
+     text-align: center;
+   }
+ 
+   .testimonial-author {
+     font-size: var(--font-size-body);
+-    font-weight: 700; /* Lora-Bold */
++    font-weight: 700;
++    /* Lora-Bold */
+     color: var(--color-text);
+     line-height: 24px;
+-    margin-top: 30px; /* 30pt gap from quote */
++    margin-top: 30px;
++    /* 30pt gap from quote */
+     text-align: center;
+   }
+ 
+@@ -1658,16 +1735,20 @@ button {
+   .instagram-section {
+     max-width: 2100px;
+     height: auto;
+-    padding-bottom: var(--space-2xl); /* Added 40px bottom padding for the white gap */
++    padding-bottom: var(--space-2xl);
++    /* Added 40px bottom padding for the white gap */
+     margin: 0 auto;
+     background-color: var(--color-white);
+-    background-image: none; /* Remove paper texture inline style */
++    background-image: none;
++    /* Remove paper texture inline style */
+   }
+ 
+   .instagram-section .container {
+     padding: 0 10px;
+   }
+-  .instagram-header, .instagram-grid {
++
++  .instagram-header,
++  .instagram-grid {
+     padding: 0 10px;
+   }
+ 
+@@ -1680,15 +1761,18 @@ button {
+     width: 100%;
+     max-width: none;
+     height: auto;
+-    aspect-ratio: 1440 / 699; /* Maintain exact proportions so it never crops */
++    aspect-ratio: 1440 / 699;
++    /* Maintain exact proportions so it never crops */
+     margin-top: 0;
+     background-size: cover;
+-    background-position: center top; /* Anchor to top */
++    background-position: center top;
++    /* Anchor to top */
+     background-color: var(--color-white);
+   }
+ 
+   .footer-landscape::after {
+-    display: none; /* Removed black gradient as requested */
++    display: none;
++    /* Removed black gradient as requested */
+   }
+ 
+   .footer-content-wrapper {
+@@ -1727,7 +1811,11 @@ button {
+     margin-top: 2px;
+   }
+ 
+-  .nav-left .hamburger {
++  .nav-left > *:not(:last-child) {
++  margin-right: var(--space-3xl);
++}
++
++.nav-left .hamburger {
+     display: block;
+     cursor: pointer;
+   }
+@@ -1776,6 +1864,7 @@ button {
+     height: 32px;
+     /* Make cart icon bigger */
+   }
++
+   .desktop-only {
+     display: none !important;
+   }
+@@ -1859,25 +1948,30 @@ button {
+     right: 5px;
+     /* Center over 25px frame */
+   }
++
+   .intro-text h2 {
+     font-size: var(--font-size-xl);
+     /* Reduced for mobile */
+   }
++
+   .fish-icon {
+     margin-bottom: var(--space-2xl);
+     /* Shifts the intro heading up on mobile */
+   }
++
+   .story-content p {
+     height: auto;
+     /* Allows text to wrap without overlapping the button */
+     padding: 0 var(--space-md);
+     /* Adds breathing room on sides for mobile */
+   }
++
+   .product-carousel-container {
+     margin-top: -10px;
+     /* forces it to override the 1024px rule below */
+     padding: 0 15px;
+   }
++
+   .product-carousel-container {
+     padding: 0 15px;
+   }
+@@ -1907,9 +2001,12 @@ button {
+   .carousel-arrow.next {
+     right: 5px;
+   }
+-  .bento-item, .bento-large {
++
++  .bento-item,
++  .bento-large {
+     width: 100%;
+   }
++
+   /* Lures hidden on mobile */
+   .testimonial-section .container::before,
+   .testimonial-content::before {
+@@ -1936,7 +2033,7 @@ button {
+   .instagram-header {
+     flex-direction: column;
+     align-items: center;
+-    gap: 10px;
++    /* gap removed */
+   }
+ 
+   .instagram-header h2 {
+@@ -1944,12 +2041,16 @@ button {
+   }
+ 
+   .instagram-grid {
+-    gap: 12px;
+-    padding: 0 10px; /* 10pt padding */
++    justify-content: space-between;
++    padding: 0 10px;
++    /* 10pt padding */
+   }
++
+   .instagram-item {
++  margin-bottom: 15px;
+     width: calc(50% - 6px);
+   }
++
+   .footer-main {
+     flex-direction: column;
+     align-items: center;
+@@ -1957,9 +2058,14 @@ button {
+     padding-bottom: var(--space-2xl);
+   }
+ 
+-  .footer-col-logo {
++  .footer-main > *:not(:last-child) {
++  margin-right: var(--space-2xl);
++}
++
++.footer-col-logo {
+     order: 3;
+-    margin-bottom: var(--space-md); /* Reduced from 40px */
++    margin-bottom: var(--space-md);
++    /* Reduced from 40px */
+     padding-right: 0;
+     border-right: none;
+     position: relative;
+@@ -1967,7 +2073,8 @@ button {
+   }
+ 
+   .footer-col-logo img {
+-    width: 320px; /* Increased logo size for mobile */
++    width: 320px;
++    /* Increased logo size for mobile */
+   }
+ 
+   .back-to-top {
+@@ -1997,7 +2104,7 @@ button {
+   .footer-col-links {
+     order: 2;
+     flex-direction: column;
+-    gap: 0;
++    /* gap: 0 removed */
+     align-items: stretch;
+     text-align: left;
+     width: 100%;
+@@ -2036,10 +2143,11 @@ button {
+   .footer-bottom {
+     flex-direction: column;
+     align-items: center;
+-    gap: 10px;
++    /* gap removed */
+     text-align: center;
+     padding: 12px var(--space-md);
+   }
++
+   .site-header {
+     width: calc(100% + 30px);
+     max-width: none;
+@@ -2074,6 +2182,7 @@ button {
+     height: 30px;
+     /* Keeps the gradient very minimal on mobile */
+   }
++
+   .product-carousel-container {
+     padding: 0 var(--space-2xl);
+     margin-top: var(--space-2xl);
+@@ -2098,6 +2207,7 @@ button {
+     padding: var(--space-2xl);
+     flex: auto;
+   }
++
+   /* Bento grid overrides removed for flexbox */
+   .testimonial-section {
+     padding: 30px 0 30px 0;
+@@ -2106,7 +2216,8 @@ button {
+   .testimonial-content {
+     border: 1px solid var(--color-beige);
+     padding: var(--space-2xl) var(--space-md);
+-    margin: 0 15px; /* Keep it away from screen edges */
++    margin: 0 15px;
++    /* Keep it away from screen edges */
+     height: auto;
+   }
+ 
+@@ -2114,7 +2225,8 @@ button {
+     font-size: var(--font-size-md);
+     text-align: center;
+     text-align-last: auto;
+-    margin: var(--space-md) 0; /* Add some space around the quote */
++    margin: var(--space-md) 0;
++    /* Add some space around the quote */
+   }
+ 
+   .testimonial-author {
+@@ -2124,23 +2236,32 @@ button {
+   .testimonial-divider {
+     display: block;
+     position: absolute;
+-    bottom: -42px; /* Center of the 24px icon sits exactly on the 30px background edge */
++    bottom: -42px;
++    /* Center of the 24px icon sits exactly on the 30px background edge */
+     left: 50%;
+     transform: translateX(-50%);
+     width: 130px;
+     height: 24px;
+     object-fit: contain;
+   }
++
+   .instagram-item {
++  margin-bottom: 15px;
+     width: calc(33.333% - 10px);
+   }
++
+   .footer-main {
+     flex-wrap: wrap;
+     justify-content: center;
+-    gap: 50px;
++    /* gap: 50px removed */
+     padding-bottom: var(--space-2xl);
+   }
+-  .footer-col-logo {
++
++  .footer-main > *:not(:last-child) {
++  margin-right: var(--space-2xl);
++}
++
++.footer-col-logo {
+     flex: 0 0 100%;
+     text-align: center;
+     padding-right: 0;
+@@ -2148,16 +2269,19 @@ button {
+     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+     padding-bottom: var(--space-2xl);
+   }
++
+   .footer-col-newsletter {
+     flex: 1;
+     width: 300px;
+     margin: 0;
+   }
++
+   .footer-col-links {
+     flex: 1;
+     width: 300px;
+     justify-content: flex-start;
+-    gap: var(--space-2xl);
+-    margin-left: 0; /* Reset desktop auto margin */
++    /* gap removed */
++    margin-left: 0;
++    /* Reset desktop auto margin */
+   }
+-}
++}
+\ No newline at end of file
