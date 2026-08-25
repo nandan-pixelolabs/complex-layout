@@ -321,9 +321,9 @@ button {
 
 .hero-slider {
   position: relative;
-  width: calc(100% - 60px);
+  width: 100%;
   margin: 0 auto;
-  height: clamp(650px, 45vw, 850px);
+  height: 650px;
 }
 
 .hero-slider::before {
@@ -390,12 +390,12 @@ button {
 .hero-content {
   position: relative;
   width: 100%;
-  max-width: 610px;
+  max-width: 750px;
   text-align: center;
   color: white;
   z-index: 5;
   margin-left: 10px;
-  left: 80px;
+  left: 12vw;
 }
 
 .hero-content h1 {
@@ -406,8 +406,8 @@ button {
   line-height: 1.2;
   height: 100px;
   /* Frame height exactly 100 from spec */
-  margin-top: 0;
-  margin-bottom: var(--space-md);
+  margin: 0 auto var(--space-md);
+  width: 610px;
 
   /* Mathematically exactly positions p to have 290pt gap */
 }
@@ -1510,52 +1510,8 @@ button {
     max-width: 2100px;
   }
 
-  .hero-slider {
-    width: 100%;
-    height: 650px;
-    margin-left: 0;
-  }
-
-  .hero-slide::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg,
-        rgba(35, 31, 32, 0.5) 0%,
-        rgba(35, 31, 32, 0) 100%);
-    z-index: 1;
-    /* Exactly between image (z-index: auto) and text (z-index: 5) */
-    pointer-events: none;
-  }
-
   .nav-left {
     left: calc(50vw - 720px);
-  }
-
-  .hero-content {
-    left: 12vw;
-    /* Shifted slightly left from 18vw */
-    max-width: 750px;
-    /* Increased from 610px for extra wide */
-  }
-
-  .hero-content h1 {
-    width: 610px;
-    height: 100px;
-    margin: 0 auto var(--space-md);
-    /* Center horizontally inside the 750px container */
-  }
-
-  .hero-content .btn {
-    width: 240px;
-    height: 57px;
-    padding: 0;
-    font-size: 15px;
-    letter-spacing: 2px;
-    margin: 22px auto 0;
   }
 
   .nav-right {
@@ -2139,6 +2095,24 @@ button {
   }
 }
 
+
+/* Hero Desktop Fallback (Standard Desktop) */
+@media (max-width: 1920px) {
+  .hero-slider {
+    width: calc(100% - 60px);
+    height: clamp(650px, 45vw, 850px);
+  }
+  .hero-content {
+    left: 80px;
+    max-width: 610px;
+  }
+  .hero-content h1 {
+    width: auto;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
 /* Consolidated @media (max-width: 1024px) */
 @media (max-width: 1024px) {
