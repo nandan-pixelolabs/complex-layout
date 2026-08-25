@@ -1,0 +1,158 @@
+/* 1. :root / Design Tokens */
+:root {
+  /* Colors */
+  --color-primary: #b73225;
+  --color-text: #231f20;
+  --color-beige: #ebe5cf;
+  --color-light-beige: #fbf9f5;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-footer-bg: rgb(15, 12, 7);
+  --color-brown: #51453a;
+
+  /* Typography Fonts */
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-heading: "Lora", "Libre Baskerville", serif;
+  --font-heading-alt: "Libre Baskerville", serif;
+
+  /* Typography Scale */
+  --font-size-xs: 0.6875rem;
+  /* 11px */
+  --font-size-sm: 0.75rem;
+  /* 12px */
+  --font-size-body-sm: 0.875rem;
+  /* 14px */
+  --font-size-body: 1rem;
+  /* 16px */
+  --font-size-md: 1.375rem;
+  /* 22px */
+  --font-size-lg: 1.875rem;
+  /* 30px */
+  --font-size-xl: 2rem;
+  /* 32px */
+  --font-size-2xl: 2.8125rem;
+  /* 45px */
+  --font-size-3xl: 3.125rem;
+  /* 50px */
+
+  /* Spacing Scale */
+  --space-2xs: 0.5rem;
+  /* 8px */
+  --space-xs: 0.75rem;
+  /* 12px */
+  --space-sm: 1rem;
+  /* 16px */
+  --space-md: 1.25rem;
+  /* 20px */
+  --space-lg: 1.5rem;
+  /* 24px */
+  --space-xl: 2rem;
+  /* 32px */
+  --space-2xl: 2.5rem;
+  /* 40px */
+  --space-3xl: 3.75rem;
+  /* 60px */
+  --space-4xl: 5rem;
+  /* 80px */
+  --space-5xl: 7.5rem;
+  /* 120px */
+
+  /* Layout */
+  --container-max-width: 1600px;
+}
+
+/* 2. Reset / Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  color: var(--color-black);
+  background: url("../../assets/backgrounds/background-paper@2x.png") repeat;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 3. Global Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+}
+
+/* 4. Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-between {
+  justify-content: space-between;
+}
