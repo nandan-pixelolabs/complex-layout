@@ -964,9 +964,9 @@
 
   .lure-1 {
     width: 137px;
-    height: 90px;
+    height: 148px;
     bottom: -4px;
-    left: -28px;
+    left: 1px;
     right: auto;
   }
 
@@ -974,18 +974,19 @@
     top: auto;
     bottom: -30px;
     left: auto;
-    right: -10px;
-    width: 130px;
-    height: 181px;
+    right: -60px;
+    width: 149px;
+    height: 196px;
+    transform: rotate(56deg);
   }
 
   .lure-3e {
     width: 193px;
     height: 191px;
     top: -62px;
-    right: -1px;
+    right: -84px;
     left: auto;
-    transform: rotate(-7deg);
+    transform: rotate(-2deg);
   }
 
   .instagram-section {
@@ -1017,12 +1018,18 @@
     padding: 150px var(--space-md) 100px var(--space-md);
   }
 
-  .lure-3e {
+  .lure-4 {
     display: block;
+    top: -145px;
+    bottom: auto;
+    right: -71px;
+    transform: rotate(-7deg);
+    height: 225px;
+    width: 225px;
   }
 
   .lure-2,
-  .lure-4 {
+  .lure-3e {
     display: none;
   }
 
