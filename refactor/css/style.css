@@ -799,7 +799,10 @@
   align-items: flex-end;
   flex-direction: row;
   margin-bottom: var(--space-2xl);
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 10px;
+  max-width: 1300px;
 }
 
 @media (min-width: 1440px) {
