@@ -1010,6 +1010,10 @@
     bottom: -12.5px;
     height: 1px;
   }
+
+  .instagram-item {
+    width: calc(33.333% - 10px);
+  }
 }
 
 /* Consolidated @media (max-width: 768px) */
@@ -1209,6 +1213,15 @@
     width: 100%;
   }
 
+  .instagram-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .instagram-header h2 {
+    margin-bottom: 20px;
+  }
 }
 
 /* Consolidated @media (max-width: 480px) */
@@ -1219,11 +1232,6 @@
     margin-left: -15px;
     margin-right: -15px;
     height: 60px;
-  }
-
-  .instagram-header {
-    flex-direction: column;
-    align-items: center;
   }
 
   .instagram-header h2 {
