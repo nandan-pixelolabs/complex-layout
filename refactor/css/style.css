@@ -393,7 +393,7 @@
   position: relative;
   width: 100%;
   max-width: 1440px;
-  margin-top: clamp(-350px, calc(-130px - (100vw - 1440px) * 0.3333), -130px);
+  margin-top: clamp(-350px, calc(-180px - (100vw - 1440px) * 0.3333), -130px);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
@@ -566,7 +566,7 @@
 
 /* --- Shop Categories (Bento Grid) --- */
 .shop-categories {
-  padding: var(--space-4xl) 0 var(--space-md);
+  padding: var(--space-2xl) 0 var(--space-md);
   background-color: var(--color-light-beige);
 }
 
@@ -791,8 +791,6 @@
 .instagram-section {
   background-color: var(--color-white);
   padding: 35px 0 var(--space-2xl) 0;
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
 .instagram-header {
@@ -802,6 +800,12 @@
   flex-direction: row;
   margin-bottom: var(--space-2xl);
   padding: 0 10px;
+}
+
+@media (min-width: 1440px) {
+  .instagram-header {
+    padding: 0 60px 0 59px;
+  }
 }
 
 .instagram-header h2 {
@@ -840,6 +844,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 10px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .instagram-item {
